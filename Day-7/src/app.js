@@ -22,5 +22,18 @@ const noteModel = require("./models/note.model")
     })
  })
 
+app.get("/notes",async(req,res)=>{
+  const notes = await  noteModel.find()
+
+  res.status(200).json({
+    message:"Notes fetch successfully",
+      notes
+  })
+})
+
+
+
+
+
 
 module.exports = app
