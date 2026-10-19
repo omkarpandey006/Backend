@@ -31,3 +31,11 @@ html{
  border-radius: .7rem;
  max-width: 20rem;
 }
+
+.note-create-from{
+  display: flex;
+  gap: 1rem;
+  padding-block: 1rem;
+  padding-inline: 3rem;
+}
+

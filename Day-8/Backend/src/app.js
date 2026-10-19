@@ -1,6 +1,7 @@
 const express = require("express")
 const noteModel = require("./Model/note.model")
 const cors = require("cors")
+const path = require("path")
 
 
 
@@ -9,6 +10,8 @@ const app = express()
 app.use(cors())
 
 app.use(express.json())
+app.use(express.static("./public"))
+
 
 // post | notes
 // {title , discription} = req.body
@@ -44,7 +47,7 @@ app.delete("/notes/:index", async (req ,res)=>{
 
     await noteModel.findByIdAndDelete(index)
 
-    console.log(index);
+   
     
     res.status(200).json({
         Message:"Delete note successfully"
@@ -64,8 +67,16 @@ const index = await noteModel.findByIdAndUpdate(index1, {discription})
 
     res.status(200).json({
         Message:"update discription",
-        index
+        
     })
+})
+
+
+//middleware to connect with frontend content 
+
+
+app.use('*name',(req , res)=>{
+    res.sendFile(path.join(__dirname,"..","public/index.html"))
 })
 
 
