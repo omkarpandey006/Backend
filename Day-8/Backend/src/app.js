@@ -10,6 +10,7 @@ const app = express()
 app.use(cors())
 
 app.use(express.json())
+// static middleware
 app.use(express.static("./public"))
 
 
@@ -56,6 +57,7 @@ app.delete("/notes/:index", async (req ,res)=>{
 
 //patch 
 // update the discription of the notes 
+// req.params.index
 
 app.patch("/notes/:index",async (req , res)=>{
     const index1 = req.params.index
