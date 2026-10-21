@@ -6,7 +6,7 @@ const App = () => {
   const [note, setnote] = useState([]);
 
   function fetchNotes() {
-    axios.get("http://localhost:3000/notes").then((res) => {
+    axios.get("https://backend-1-xvnn.onrender.com/notes").then((res) => {
       setnote(res.data.note1);
     });
   }
@@ -20,7 +20,7 @@ const App = () => {
     console.log(title.value, discription.value);
 
     axios
-      .post("http://localhost:3000/notes", {
+      .post("https://backend-1-xvnn.onrender.com/notes", {
         title: title.value,
         discription: discription.value,
       })
@@ -31,7 +31,7 @@ const App = () => {
   }
 
   function handledeleteNote(noteId) {
-    axios.delete("http://localhost:3000/notes/" + noteId).then((res) => {
+    axios.delete("https://backend-1-xvnn.onrender.com/notes/" + noteId).then((res) => {
       console.log(res.data);
       fetchNotes();
     });
@@ -39,7 +39,7 @@ const App = () => {
 
   function updateNote(noteId) {
     axios
-      .patch("http://localhost:3000/notes/" + noteId, {
+      .patch("https://backend-1-xvnn.onrender.com/notes/" + noteId, {
         discription: "Note update",
       })
       .then((res) => {
